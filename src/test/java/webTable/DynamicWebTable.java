@@ -18,18 +18,18 @@ public class DynamicWebTable {
     void Table(){
         List<WebElement> rows=driver.findElements(By.xpath("//table[@id='customers']/tbody/tr"));
 
-        System.out.println("No of rows are:" + rows.size());
+        //System.out.println("No of rows are:" + rows.size());
 
         List<WebElement> columns=driver.findElements(By.xpath("//table[@id='customers']/tbody/tr/th"));
 
-        System.out.println("No of columns are:" + columns.size());
+        //System.out.println("No of columns are:" + columns.size());
 
-        //for (int i=1;i<=columns.size();i++){
-         //   for (int j=2;j<=rows.size();j++){
-              // System.out.println(driver.findElement(By.xpath("//table[@id='customers']/tbody/tr["+j+"]/td["+i+"]")).getText());
-               //System.out.println(driver.findElement(By.xpath("//table[@id='customers']/tbody/tr/th")).getText());
-            //}
-       //}
+        for (int i=1;i<=columns.size();i++){
+            for (int j=2;j<=rows.size();j++){
+               System.out.println(driver.findElement(By.xpath("//table[@id='customers']/tbody/tr["+j+"]/td["+i+"]")).getText());
+               System.out.println(driver.findElement(By.xpath("//table[@id='customers']/tbody/tr/th")).getText());
+            }
+       }
     }
 
     @BeforeTest
